@@ -1,0 +1,119 @@
+body{
+  display: flex;
+  background: #308Aaa;
+  padding: 400px;
+}
+
+.wrap{
+  perspective: 600px;
+  perspective-origin: 50% 100px;
+}
+.cube {
+  position: relative;
+  width: 400px;
+  transform-style: preserve-3d;
+}
+[class*='face']{
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  background: ivory;
+  display: flex;
+  margin: 5px;
+
+  .pip {
+    @include pip;
+    margin: 20px;
+  }
+  .column{
+    display: flex;
+    .pip{
+      @include pip;
+    }
+  }
+}
+.first-face{
+  align-items: center;
+  justify-content: center;
+}
+
+.second-face {
+  justify-content: space-between;
+  .pip:last-child{
+    align-self: flex-end;
+  }
+}
+
+.third-face {
+  justify-content: space-between;
+  .pip:nth-child(2){
+    align-self: center;
+  }
+  .pip:last-child{
+    align-self: flex-end;
+  }
+}
+
+.fourth-face{
+  justify-content: space-between;
+  .column{
+    flex-direction: column;
+    justify-content: space-between;
+    .pip:first-child{
+      align-self: flex-start;
+    }
+    .pip:last-child{
+      align-self: flex-end;
+    }
+  }
+}
+.fifth-face{
+  justify-content: space-between;
+  .column{
+    flex-direction: column;
+    justify-content: space-between;
+    .pip:first-child{
+      align-self: flex-start;
+    }
+    .pip:last-child{
+      align-self: flex-end;
+    }
+  }
+  .column:nth-child(2){
+    justify-content: center;
+  }
+}
+.sixth-face{
+  justify-content: space-between;
+  .column{
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+.first-face{
+  transform: rotateY(0deg) translateZ(100px);
+}
+.second-face{
+  transform: rotateX(180deg) translateZ(100px);
+}
+.third-face{
+  transform: rotateY(90deg) translateZ(100px);
+}
+.fourth-face{
+  transform: rotateY(-90deg) translateZ(100px);
+}
+.fifth-face{
+  transform: rotateX(-90deg) translateZ(-100px);
+}
+.sixth-face{
+  transform: rotateX(-90deg) translateZ(100px);
+}
+@keyframes spin {
+	from { transform: rotateY(0) rotateX(0); }
+	to { transform: rotateY(360deg) rotateX(360deg); }
+}
+
+
+.cube {
+	animation: spin 8s infinite linear;
+}
