@@ -1,24 +1,34 @@
 body {
-  display: flex;
   background: #308Aaa;
-  padding: 400px; }
+  overflow: hidden; }
 
 .wrap {
-  perspective: 600px;
-  perspective-origin: 50% 100px; }
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  perspective: 1000px; }
 
 .cube {
+  top: 300px;
   position: relative;
-  width: 400px;
-  transform-style: preserve-3d; }
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  transform-style: preserve-3d;
+  animation: spin 4s infinite linear; }
 
+@keyframes spin {
+  from {
+    transform: rotateY(0) rotateX(0); }
+  to {
+    transform: rotateY(-360deg) rotateX(360deg); } }
 [class*='face'] {
   position: absolute;
-  height: 200px;
-  width: 200px;
+  height: 100%;
+  width: 100%;
+  border: 1px solid grey;
   background: ivory;
-  display: flex;
-  margin: 5px; }
+  display: flex; }
   [class*='face'] .pip {
     height: 20px;
     width: 20px;
@@ -80,29 +90,21 @@ body {
     justify-content: space-between; }
 
 .first-face {
-  transform: rotateY(0deg) translateZ(100px); }
+  transform: rotateX(90deg) translateZ(100px); }
 
 .second-face {
-  transform: rotateX(180deg) translateZ(100px); }
+  transform: translateZ(100px); }
 
 .third-face {
   transform: rotateY(90deg) translateZ(100px); }
 
 .fourth-face {
-  transform: rotateY(-90deg) translateZ(100px); }
+  transform: rotateY(180deg) translateZ(100px); }
 
 .fifth-face {
-  transform: rotateX(-90deg) translateZ(-100px); }
+  transform: rotateY(-90deg) translateZ(100px); }
 
 .sixth-face {
   transform: rotateX(-90deg) translateZ(100px); }
-
-@keyframes spin {
-  from {
-    transform: rotateY(0) rotateX(0); }
-  to {
-    transform: rotateY(360deg) rotateX(360deg); } }
-.cube {
-  animation: spin 8s infinite linear; }
 
 /*# sourceMappingURL=index.css.map */
